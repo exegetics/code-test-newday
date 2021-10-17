@@ -5,8 +5,8 @@ import org.apache.spark.sql.functions.{max, _}
 
 object Exercise2Candidate {
 
-  val joinColumns = Seq("movieId")
-  val grouping = Seq("movieId", "title", "genre").map {
+  private val joinColumns = Seq("movieId")
+  private val grouping = Seq("movieId", "title", "genre").map {
     col(_)
   }
 
@@ -15,7 +15,7 @@ object Exercise2Candidate {
     movies.join(ratings, joinColumns, "left").groupBy(grouping: _*).agg(
       max("rating").as("maxRating"),
       min("rating").as("minRating"),
-        avg("rating").as("avgRating")
+      avg("rating").as("avgRating")
     )
   }
 }
