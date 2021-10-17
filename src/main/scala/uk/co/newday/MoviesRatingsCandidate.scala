@@ -5,7 +5,11 @@ import uk.co.newday.solutions.{Exercise1Candidate, Exercise2Candidate, Exercise3
 
 
 object MoviesRatingsCandidate {
-  lazy private implicit val spark: SparkSession = SparkSession.builder().master("local[*]").appName("NewDay coding exerices").getOrCreate()
+  lazy private implicit val spark: SparkSession = SparkSession.
+    builder().
+    master("local[*]").
+    appName("NewDay coding exerices").
+    getOrCreate()
 
   def main(args: Array[String]) {
     val (movieFilePath, ratingsFilePath) = args.take(2) match {
